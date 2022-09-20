@@ -1,2 +1,19 @@
-<h1>Admin::Items#new</h1>
-<p>Find me in app/views/admin/items/new.html.erb</p>
+<p>商品新規登録</p>
+
+<label>商品画像</label>
+
+<label class="form-image">
+  <span class= "image-file">ファイルを選択</span>
+  商品名
+   <%= f.file_field :image placeholder= "商品名" %>
+  </label>
+<label>商品説明</label>
+<%= f.text_area :introduction　placeholder="ここに説明文を記述します" %>
+<label>ジャンル</label>
+<%= form_with model: @genre do |genre| %>
+  <%= f.select :name, Genre.all,include_blank: "選択して下さい" %>
+<% end %>
+<label>税抜価格</label>
+<%= f.number_field :price　placeholder="1000" %>
+<label>販売ステータス</label>
+<%= form_with model:  %
