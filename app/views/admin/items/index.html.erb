@@ -12,19 +12,19 @@
   <% @items.each do |item| %>
     <tr>
       <td>
-        <%= item.id %>
+        <%= @item.id %>
       </td>
       <td>
         <%= link_to @item.name %>
       </td>
       <td>
-        <%= item.price %>
+        <%= @item.price %>
       </td>
       <td>
-        <%= item.genre_id %>
+        <%= @item.genre_id %>
       </td>
       <td>
-        <%= item.is_active %>
+        <%= @item.is_active %>
       </td>
     </tr>
   </tbody>
