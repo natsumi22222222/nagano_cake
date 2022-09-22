@@ -3,8 +3,9 @@
 
 <table>
   <tbody>
+    <th><%= image_tag @item.image, size: "300x300" %></th>
     <th>商品名</th>
-    <td><%= @item.name %></td>
+    <td><%= link_to @item.name, edit_admin_item_path(@item.id) %></td>
     <th>商品説明</th>
     <td><%= @item.introduction %></td>
     <th>ジャンル</th>

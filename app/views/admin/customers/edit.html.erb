@@ -1,2 +1,18 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
+<%= @coustomer.last_name,first_name %>さんの会員時情報編集
+
+<labal>会員ID</labal>
+<%= @coustomer.id %>
+<labal>氏名</labal>
+<%= @coustomer.last_name , @coustomer.first_name %>
+<labal>フリガナ</labal>
+<%= @coustomer.last_name_kana, @coustomer.first_name_kana %>
+<labal>郵便番号</labal>
+<%= @coustomer.postal_code %>
+<labal>住所</labal>
+<%= @coustomer.address %>
+<labal>電話番号</labal>
+<%= @coustomer.telephone_number %>
+<labal>メールアドレス</labal>
+<%= @coustomer.email %>
+<labal>会員ステータス</labal>
+<%= @coustomer.is_deleted %>

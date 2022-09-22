@@ -1,2 +1,23 @@
-<h1>Admin::Customers#show</h1>
-<p>Find me in app/views/admin/customers/show.html.erb</p>
+<%= form_with model: @costomer, url: admin_costomer_path(@costomer.id), method: :patch do |f| %>
+
+<%= coustomer.last_name,first_name %>さんの会員詳細
+
+<labal>会員ID</labal>
+<%= f.file_field :id %>
+<labal>氏名</labal>
+<%= f.file_field :last_name %>
+<%= f.file_field :first_name %>
+<labal>フリガナ</labal>
+<%= f.file_field :last_name_kana %>
+<%= f.file_field :first_name_kana %>
+<labal>郵便番号</labal>
+<%= f.file_field :postal_code %>
+<labal>住所</labal>
+<%= f.file_area :address %>
+<labal>電話番号</labal>
+<%= f.file_field :telephone_number %>
+<labal>メールアドレス</labal>
+<%= f.file_field :email %>
+<labal>退会ステータス</labal>
+<%= f.radio_button :is_deleted, "有効" %>
+<%= f.radio_button :is_deleted, "退会" %>

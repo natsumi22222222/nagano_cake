@@ -10,12 +10,12 @@
             </tr>
           </thead>
           <tbody>
-            <% @costomers.each do |costomer| %>
+            <% @customers.each do |costomer| %>
              <tr>
                <td><%= customer.id %></td>
                <td></td>
                <td><%= customer.email %></td>
-               <td><%= is_deleted %></td>
+               <td><%= customer.is_deleted %></td>
              </tr>
             <% end %>
           </tbody>

@@ -1,10 +1,10 @@
 <p>商品編集</p>
-
 <%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f| %>
   <label class="form-image">
     <span class= "image-file">ファイルを選択</span>
       商品画像
   </label>
+  
   <%= f.file_field :image %>
 
   <label>商品名</label>
