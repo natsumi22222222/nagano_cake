@@ -1,1 +1,22 @@
-<p></p>
+<p>注文履歴一覧</p>
+
+<table class= "table">
+          <thead>
+            <tr>
+              <th>購入日時</th>
+              <th>購入者</th>
+              <th>注文個数</th>
+              <th>注文ステータス</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @.each do || %>
+             <tr>
+               <td><%= @.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+               <td><%= @ %></td>
+               <td><%= @ %></td>
+               <td><%= customer.is_deleted %></td>
+             </tr>
+            <% end %>
+          </tbody>
+        </table>
