@@ -1,23 +1,23 @@
-<%= form_with model: @costomer, url: admin_costomer_path(@costomer.id), method: :patch do |f| %>
-
-<%= coustomer.last_name,first_name %>さんの会員詳細
+<%= @coustomer.last_name,first_name %>さんの会員詳細
 
 <labal>会員ID</labal>
-<%= f.file_field :id %>
+<%= @coustomer.id %>
 <labal>氏名</labal>
-<%= f.file_field :last_name %>
-<%= f.file_field :first_name %>
+<%= @coustomer.last_name %>
+<%= @coustomer.first_name %>
 <labal>フリガナ</labal>
-<%= f.file_field :last_name_kana %>
-<%= f.file_field :first_name_kana %>
+<%= @coustomer.last_name_kana %>
+<%= @coustomer.first_name_kana %>
 <labal>郵便番号</labal>
-<%= f.file_field :postal_code %>
+<%= @coustomer.postal_code %>
 <labal>住所</labal>
-<%= f.file_area :address %>
+<%= @coustomer.address %>
 <labal>電話番号</labal>
-<%= f.file_field :telephone_number %>
+<%= @coustomer.telephone_number %>
 <labal>メールアドレス</labal>
-<%= f.file_field :email %>
+<%= @coustomer.email %>
 <labal>退会ステータス</labal>
-<%= f.radio_button :is_deleted, "有効" %>
-<%= f.radio_button :is_deleted, "退会" %>
+<%= @coustomer.is_deleted %>
+
+<%= link_to '編集する',edit_customer_path(@costomer.id), class: "btn btn-sm btn-success" %>
+<%= link_to '注文履歴一覧に戻る',path(@costomer.id), class: "btn btn-sm btn-" %>

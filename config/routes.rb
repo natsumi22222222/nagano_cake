@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "public/homes#top"
+  root "admin/homes#top"
 
   devise_for :customers,skip: [:passwords], controllers: {
     registrations: "public/registrations",
