@@ -1,2 +1,19 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+
+<div class= "container">
+  <div class= "sideber">
+    <% @genres.each do |genre| %>
+      <%= genre.name %>
+    <% end %>
+  </div>
+  <div class= "main-visual">
+    <p>
+      ようこそ、<strong>ながのCAKE</strong>へ！<br>
+      このサイトは、ケーキ販売のECサイトになります。<br>
+      会員でない方も商品の閲覧はできますが、
+      購入には会員登録が必要になります。
+    </p>
+
+    <h4>新着商品</h4>
+
+  </div>
+</div>

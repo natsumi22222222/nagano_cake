@@ -1,15 +1,15 @@
 <p>注文履歴詳細</p>
-
+<% @order_detail each do |orderdetail| %>
 <label>購入者</label>
-<%= @order.name %>
+<%=  %>
 <label>注文日</label>
-<%= @order.created_at.strftime('%Y/%m/%d') %>
+<%= order_detail.created_at.strftime('%Y/%m/%d') %>
 <label>配送先</label>
-<%= @order.address %>
+<%= order_detail.address %>
 <label>支払方法</label>
-<%= @order.payment_method %>
+<%= order_detail.payment_method %>
 <label>入金ステータス</label>
-<%= @order.status %>
+<%= order_detail.status %>
 
 <table class= "table">
           <thead>
@@ -22,14 +22,13 @@
             </tr>
           </thead>
           <tbody>
-            <% @order_details.each do |order_details| %>
              <tr>
-               <td><%= item_id.name %></td>
-               <td><%= order_details.tax_price %></td>
-               <td><%= order_details.amount %></td>
+               <td><%= order_id.name %></td>
+               <td><%= order.total_payment %></td>
+               <td><%= order_detail.amount %></td>
                <td><%= item_id.price %></td>
                <td><%= order_details.making_status %></td>
              </tr>
-            <% end %>
+<% end %>
           </tbody>
         </table>
