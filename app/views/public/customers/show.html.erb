@@ -1,2 +1,29 @@
-<h4>商品一覧</h4>
+<h4>マイページ</h4>
 
+<h5>登録情報</h5><%= link_to '編集する', edit_customer_path %>
+
+<table>
+  <% @customers.each do |customer| %>
+  <tr>
+    <th>氏名</th>
+    <th>カナ</th>
+    <th>郵便番号</th>
+    <th>住所</th>
+    <th>電話番号</th>
+    <th>メールアドレス</th>
+  </tr>
+  <tr>
+    <td><%= last_name first_name %></td>
+    <td><%= last_name_kana first_name_kana %></td>
+    <td><%= postal_code %></td>
+    <td><%= address %></td>
+    <td><%= telephone_number %></td>
+    <td><%= email %></td>
+  </tr>
+  <% end %>
+</table>
+
+<h5>配送先</h5><%= link_to '一覧を見る', addresses_path %>
+
+
+<h5>注文履歴</h5><%= link_to '一覧を見る', orders_path %>
