@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root "admin/homes#top"
+  root "public/homes#top"
+
 
   devise_for :customers,skip: [:passwords], controllers: {
     registrations: "public/registrations",
@@ -16,16 +17,22 @@ Rails.application.routes.draw do
     resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
-    resources :homes, only: [:top]
+
   end
 
-  namespace :public do
+  scope module: :admin do
+    get "admin" => "homes#top"
+  end
+
+  scope module: :public do
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
-    resources :orders, only: [:new, :index, :create, :show, :confirm, :complete]
-    resources :cart_items, only:[:index, :update, :destroy ,:destroy_all, :create]
-    resources :customers, only:[:show, :edit,:update, :unsubscribe, :withdraw]
+    resources :orders, only: [:new, :index, :create, :show]
+    resources :cart_items, only:[:index, :update, :destroy , :create]
+    resources :customers, only:[:show, :edit,:update]
     resources :items, only:[:index, :show]
-    resources :homes, only: [:top, :about]
+    resources :homes, only: [:top]
+    get "about" => "homes#about"
+    get "customers/my_page" => "customers#show"
   end
 
 
