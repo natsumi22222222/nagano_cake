@@ -1,20 +1,23 @@
-<%= form_with model: @costomer, url: admin_costomer_path(@costomer.id), method: :patch do |f| %>
+<%= form_with model: @customer, url: admin_customers_path(@customer.id), method: :patch do |f| %>
 
-<%= coustomer.last_name,first_name %>さんの会員時情報編集
+  <%= @customer.last_name + @customer.first_name %>さんの会員時情報編集
 
-<labal>会員ID</labal>
-<%= coustomer.id %>
-<labal>氏名</labal>
-<%= coustomer.last_name , coustomer.first_name %>
-<labal>フリガナ</labal>
-<%= coustomer.last_name_kana, coustomer.first_name_kana %>
-<labal>郵便番号</labal>
-<%= coustomer.postal_code %>
-<labal>住所</labal>
-<%= coustomer.address %>
-<labal>電話番号</labal>
-<%= coustomer.telephone_number %>
-<labal>メールアドレス</labal>
-<%= coustomer.email %>
-<labal>会員ステータス</labal>
-<%= coustomer.is_deleted %>
+  <labal>会員ID</labal>
+  <%= :id %>
+  <labal>氏名</labal>
+  <%= f.text_field :full_name %>
+  <labal>フリガナ</labal>
+  <%= f.text_field :full_name_kana %>
+  <labal>郵便番号</labal>
+  <%= f.text_field :postal_code %>
+  <labal>住所</labal>
+  <%= f.text_area :address %>
+  <labal>電話番号</labal>
+  <%= f.text_field :telephone_number %>
+  <labal>メールアドレス</labal>
+  <%= f.text_field :email %>
+  <labal>会員ステータス</labal>
+  <%= f.radio_button :is_deleted, :true %> 有効
+  <%= f.radio_button :is_deleted, :false %>退会
+  <%= f.submit "変更を保存" %>
+<% end %>

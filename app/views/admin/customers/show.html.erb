@@ -1,23 +1,28 @@
-<%= @coustomer.last_name,first_name %>さんの会員詳細
+<%= @customer.last_name + @customer.first_name %>さんの会員詳細
 
-<labal>会員ID</labal>
-<%= @coustomer.id %>
-<labal>氏名</labal>
-<%= @coustomer.last_name %>
-<%= @coustomer.first_name %>
-<labal>フリガナ</labal>
-<%= @coustomer.last_name_kana %>
-<%= @coustomer.first_name_kana %>
-<labal>郵便番号</labal>
-<%= @coustomer.postal_code %>
-<labal>住所</labal>
-<%= @coustomer.address %>
-<labal>電話番号</labal>
-<%= @coustomer.telephone_number %>
-<labal>メールアドレス</labal>
-<%= @coustomer.email %>
-<labal>退会ステータス</labal>
-<%= @coustomer.is_deleted %>
+  <labal>会員ID</labal>
+  <%= @customer.id %>
 
-<%= link_to '編集する',edit_customer_path(@costomer.id), class: "btn btn-sm btn-success" %>
-<%= link_to '注文履歴一覧に戻る',path(@costomer.id), class: "btn btn-sm btn-" %>
+  <labal>氏名</labal>
+  <%= @customer.last_name + @customer.first_name %>
+
+  <labal>フリガナ</labal>
+  <%= @customer.last_name_kana + @customer.first_name_kana %>
+
+  <labal>郵便番号</labal>
+  <%= @customer.postal_code %>
+
+  <labal>住所</labal>
+  <%= @customer.address %>
+
+  <labal>電話番号</labal>
+  <%= @customer.telephone_number %>
+
+  <labal>メールアドレス</labal>
+  <%= @customer.email %>
+
+  <labal>退会ステータス</labal>
+  <%= @customer.is_deleted %>
+
+  <%= link_to '編集する', edit_admin_customer_path(@customer.id), class: "btn btn-sm btn-success" %>
+  <%= link_to '注文履歴一覧に戻る', admin_path, class: "btn btn-sm btn-success" %>
