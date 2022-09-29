@@ -17,7 +17,9 @@ Rails.application.routes.draw do
     resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
-
+    get "customers/unsubscribe" => "customers#unsubscribe"
+    patch "customers/withdraw" => "customers#withdraw"
+    patch "customers/:id/edit" => "customers#:id/edit"
   end
 
   scope module: :admin do
@@ -25,14 +27,14 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+    resources :addresses, only: [:index, :create, :edit, :update, :destroy]
     resources :orders, only: [:new, :index, :create, :show]
     resources :cart_items, only:[:index, :update, :destroy , :create]
     resources :customers, only:[:show, :edit,:update]
     resources :items, only:[:index, :show]
     resources :homes, only: [:top]
     get "about" => "homes#about"
-    get "customers/my_page" => "customers#show"
+    get "my_page" => "customers#show"
   end
 
 

@@ -1,13 +1,13 @@
-<%= @customer.last_name + @customer.first_name %>さんの会員詳細
+<%= @customer.full_name %>さんの会員詳細
 
   <labal>会員ID</labal>
   <%= @customer.id %>
 
   <labal>氏名</labal>
-  <%= @customer.last_name + @customer.first_name %>
+  <%= @customer.full_name %>
 
   <labal>フリガナ</labal>
-  <%= @customer.last_name_kana + @customer.first_name_kana %>
+  <%= @customer.full_name_kana %>
 
   <labal>郵便番号</labal>
   <%= @customer.postal_code %>

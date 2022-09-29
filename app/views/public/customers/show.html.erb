@@ -13,12 +13,12 @@
     <th>メールアドレス</th>
   </tr>
   <tr>
-    <td><%= last_name first_name %></td>
-    <td><%= last_name_kana first_name_kana %></td>
-    <td><%= postal_code %></td>
-    <td><%= address %></td>
-    <td><%= telephone_number %></td>
-    <td><%= email %></td>
+    <td><%= customer.full_name %></td>
+    <td><%= customer.full_name_kana %></td>
+    <td><%= customer.postal_code %></td>
+    <td><%= customer.address %></td>
+    <td><%= customer.telephone_number %></td>
+    <td><%= customer.email %></td>
   </tr>
   <% end %>
 </table>
