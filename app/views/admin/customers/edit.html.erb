@@ -1,6 +1,6 @@
 <%= form_with model: @customer, url: admin_customers_path(@customer.id), method: :patch do |f| %>
 
-  <%= @customer.last_name + @customer.first_name %>さんの会員時情報編集
+  <%= @customer.full_name %>さんの会員時情報編集
 
   <labal>会員ID</labal>
   <%= :id %>
