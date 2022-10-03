@@ -29,17 +29,17 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :addresses, only: [:index, :create, :edit, :update, :destroy]
     resources :orders, only: [:new, :index, :create, :show]
-    resources :cart_items, only:[:index, :update, :destroy , :create]
+    resources :cart_items, only:[:index, :update, :destroy , :create] do
+      collection do
+        delete 'destroy_all'
+      end
+    end
     resources :customers, only:[:show, :edit,:update]
     resources :items, only:[:index, :show]
     resources :homes, only: [:top]
     get "about" => "homes#about"
     get "my_page" => "customers#show"
   end
-
-
-
-
 
 
 end

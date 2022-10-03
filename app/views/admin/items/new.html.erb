@@ -20,7 +20,6 @@
   <%= f.number_field :price, placeholder: "1000" %>
 
   <label>販売ステータス</label>
-  <%= f.radio_button :is_active, "販売中" %>
-  <%= f.radio_button :is_active, "販売停止中" %>
+  <%= f.radio_button :is_active, ["販売中","販売停止中"] %>
   <%= f.submit "新規登録" %>
 <% end %>

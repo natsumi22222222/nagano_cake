@@ -1,11 +1,10 @@
 class Public::ItemsController < ApplicationController
   def index
-    @genre=
     @items= Item.all
-    @number= Item.count
+    @count= Item.count
   end
 
   def show
-
+    @item= Item.find(params[:id])
   end
 end
