@@ -14,5 +14,8 @@
   </div>
 
     <h4>新着商品</h4>
+     <% @items.each do |item| %>
+      <%= image_tag item.image, size: "200x200" %>
 
+     <% end %>
 </div>

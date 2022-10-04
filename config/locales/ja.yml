@@ -12,3 +12,11 @@
           in_production: "製作中"
           preparing_delivery: "発送準備中"
           delivered: "発送済み"
+
+  ja:
+    date:
+      formats:
+        default: '%Y/%-m/%-d'
+    time:
+      formats:
+        default: '%Y-%-m-%-d %H:%M:%S'
