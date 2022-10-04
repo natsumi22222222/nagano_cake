@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     resources :homes, only: [:top]
     get "about" => "homes#about"
     get "my_page" => "customers#show"
+    get "orders/confirm" => "orders#confirm"
   end
 
 

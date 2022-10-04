@@ -3,10 +3,17 @@ class Public::CartItemsController < ApplicationController
 
   def index
     @cart_item= CartItem.all
+    @cart_items= current_customer.cart_items
+    @total=  0
   end
 
   def update
 
+  end
+
+  def destroy
+    @delete= CartItem.destroy_all
+    redirect_to
   end
 
   def destroy_all
