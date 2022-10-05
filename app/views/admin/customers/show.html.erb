@@ -1,28 +1,50 @@
-<%= @customer.full_name %>さんの会員詳細
+<%= @customer.full_name %>さんの会員詳細<br>
 
-  <labal>会員ID</labal>
-  <%= @customer.id %>
 
-  <labal>氏名</labal>
-  <%= @customer.full_name %>
+<table>
+  <tbody>
+    <tr>
+      <th>会員ID</th>
+      <td><%= @customer.id %></td>
+     </tr>
+     <tr>
+      <th>氏名</th>
+      <td> <%= @customer.full_name %></td>
+     </tr>
+     <tr>
+      <th>フリガナ</th>
+      <td><%= @customer.full_name_kana %></td>
+     </tr>
+     <tr>
+      <th>郵便番号</th>
+      <td><%= @customer.postal_code %></td>
+     </tr>
+     <tr>
+      <th>住所</th>
+      <td><%= @customer.address %></td>
+     </tr>
+     <tr>
+      <th>電話番号</th>
+      <td><%= @customer.telephone_number %></td>
+     </tr>
+     <tr>
+      <th>メールアドレス</th>
+      <td><%= @customer.email %></td>
+     </tr>
+     <tr>
+      <th>会員ステータス</th>
+      <td><%= @customer.is_deleted %></td>
+     </tr>
 
-  <labal>フリガナ</labal>
-  <%= @customer.full_name_kana %>
 
-  <labal>郵便番号</labal>
-  <%= @customer.postal_code %>
+  </tbody>
+</table>
 
-  <labal>住所</labal>
-  <%= @customer.address %>
 
-  <labal>電話番号</labal>
-  <%= @customer.telephone_number %>
 
-  <labal>メールアドレス</labal>
-  <%= @customer.email %>
 
-  <labal>退会ステータス</labal>
-  <%= @customer.is_deleted %>
+
+
 
   <%= link_to '編集する', edit_admin_customer_path(@customer.id), class: "btn btn-sm btn-success" %>
   <%= link_to '注文履歴一覧に戻る', admin_path, class: "btn btn-sm btn-success" %>
