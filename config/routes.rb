@@ -41,6 +41,7 @@ Rails.application.routes.draw do
     get "my_page" => "customers#show"
     get "orders/confirm" => "orders#confirm"
     get "orders/complete" => "orders#complete"
+    get "customers/infomation/edit" => "infomation#edit"
   end
 
 
