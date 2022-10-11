@@ -2,18 +2,15 @@ class Public::CartItemsController < ApplicationController
   before_action :correct_customer_destroy_all, only: :destroy_all
 
   def index
-    @cart_item= CartItem.all
-    @cart_items= current_customer.cart_items
+    @cart_items= current_customer.cart_items.all
     @total=  0
   end
 
   def create
-    @cart_item= CartItem.new(cart_item_params[:item_id])
-    if @cart_item.save
-      redirect_to cart_items_path
-    else
-      render index
-    end
+    @cart_item= current_customer.cart_items.new(cart_item_params)
+
+    @cart_item.save
+    redirect_to cart_items_path
   end
 
   def update
@@ -24,8 +21,10 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy
-    @delete= CartItem.destroy_all
+    @cart_item= CartItem.find(params[:id])
+    @cart_item.destroy
     redirect_to cart_items_path
+
   end
 
   def destroy_all
@@ -38,4 +37,5 @@ class Public::CartItemsController < ApplicationController
   def cart_item_params
       params.require(:cart_item).permit(:item_id, :amount)
   end
+
 end

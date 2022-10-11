@@ -42,6 +42,7 @@ Rails.application.routes.draw do
     get "orders/confirm" => "orders#confirm"
     get "orders/complete" => "orders#complete"
     get "customers/infomation/edit" => "infomation#edit"
+    patch "customers/infomation" => "infomation#edit"
   end
 
 

@@ -3,25 +3,31 @@
 <h5>登録情報</h5>
 <%= link_to '編集する', customers_infomation_edit_path %>
 
-<table>
-  <% @customers.each do |customer| %>
+<table class="table">
   <tr>
-    <th>氏名</th>
-    <th>カナ</th>
-    <th>郵便番号</th>
-    <th>住所</th>
-    <th>電話番号</th>
-    <th>メールアドレス</th>
+    <th class= "table-active">氏名</th>
+     <td style= "width:80%"><%= @customer.last_name %><%= @customer.first_name %></td>
   </tr>
   <tr>
-    <td><%= customer.last_name %><%= customer.first_name %></td>
-    <td><%= customer.last_name_kana %><%= customer.first_name_kana %></td>
-    <td><%= customer.postal_code %></td>
-    <td><%= customer.address %></td>
-    <td><%= customer.telephone_number %></td>
-    <td><%= customer.email %></td>
+    <th class= "table-active">カナ</th>
+    <td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
   </tr>
-  <% end %>
+  <tr>
+    <th class= "table-active">郵便番号</th>
+    <td><%= @customer.postal_code %></td>
+  </tr>
+  <tr>
+    <th class= "table-active">住所</th>
+    <td><%= @customer.address %></td>
+  </tr>
+  <tr>
+    <th class= "table-active">電話番号</th>
+    <td><%= @customer.telephone_number %></td>
+  </tr>
+  <tr>
+    <th class= "table-active">メールアドレス</th>
+    <td><%= @customer.email %></td>
+  </tr>
 </table>
 
 <h5>配送先</h5>
