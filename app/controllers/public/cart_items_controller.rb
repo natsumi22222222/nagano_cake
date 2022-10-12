@@ -1,5 +1,4 @@
 class Public::CartItemsController < ApplicationController
-  before_action :correct_customer_destroy_all, only: :destroy_all
 
   def index
     @cart_items= current_customer.cart_items.all
@@ -8,7 +7,6 @@ class Public::CartItemsController < ApplicationController
 
   def create
     @cart_item= current_customer.cart_items.new(cart_item_params)
-
     @cart_item.save
     redirect_to cart_items_path
   end
@@ -28,8 +26,10 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy_all
-  @cart_item.destroy_all
-  redirect_to cart_items_path
+    @cart_items= current_customer.cart_items
+    @cart_items.destroy_all
+    redirect_to cart_items_path
+    flash[:notice]= 'カートが空になりました。'
   end
 
   private
