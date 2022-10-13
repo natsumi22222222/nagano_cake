@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   scope module: :public do
     resources :addresses, except: [:new]
-    resources :orders, only: [:new, :index, :create, :show]
+    resources :orders, only: [:new, :index, :show]
     resources :cart_items, only:[:index, :update, :destroy , :create] do
       collection do
         delete 'destroy_all'
@@ -40,6 +40,7 @@ Rails.application.routes.draw do
     get "about" => "homes#about"
     get "my_page" => "customers#show"
     get "orders/confirm" => "orders#confirm"
+    post "orders/confirm" => ""
     get "orders/complete" => "orders#complete"
     get "customers/infomation/edit" => "infomation#edit"
     patch "customers/infomation" => "infomation#edit"
