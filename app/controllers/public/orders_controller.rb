@@ -22,29 +22,21 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @order = Order.new(order_params)
-    if @address = Address.find(params[:order][:address_id]) == "1"
-      @current_customer.postal_code
-      @current_customer.address
-      @current_customer.full_name
+    if params[:order][:select_address] == "1"
+      @order.postal_code= current_customer.postal_code
+      @order.address= current_customer.address
+      @order.name= current_customer.last_name + current_customer.first_name
 
-    elsif params[:order][:address_id] == "2"
-      @order.postal_code = Address.find(params[:order][:address]).postal_code
-      @order.address = Address.find(params[:order][:address]).address
-      @order.name = Address.find(params[:order][:address]).name
+    elsif params[:order][:select_address] == "2"
+      @address = Address.find(params[:order][:address_id])
+      @order.postal_code = @address.postal_code
+      @order.address = @address.address
+      @order.name = @address.name
 
-    elsif params[:order][:address_id] == "3"
-      @address= Address.new
-      @address.postal_code= params[:order][:postal_code]
-      @address.address= params[:order][:address]
-      @address.name= params[:order][:name]
-      if @address.save
-        @order.postal_code= @address.postal_code
-        @order.address= @address.address
-        @order.name= @address.name
-      else
-        render "new"
-      end
     end
+
+    @cart_items = current_customer.cart_items.all
+    @total= 0
   end
 
 
