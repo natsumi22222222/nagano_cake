@@ -4,10 +4,6 @@ class CartItem < ApplicationRecord
   belongs_to :item
 
 
-  def number_to_currency(price)
-    "#{price.to_s(:delimited, delimiter: ',')}"
-  end
-
   def subtotal
       item.with_tax_price * amount
   end

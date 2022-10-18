@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "public/homes#top"
+  root to: "public/homes#top"
 
 
   devise_for :customers,skip: [:passwords], controllers: {
@@ -27,12 +27,14 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :addresses, except: [:new]
     get "orders/complete" => "orders#complete"
+    get "customers/unsubscribe" => "customers#unsubscribe"
     resources :orders, only: [:new,:create, :index, :show]
     resources :cart_items, only:[:index, :create, :update, :destroy , :create] do
       collection do
         delete 'destroy_all'
       end
     end
+    patch "customers/withdraw" => "customers#withdraw"
     resources :customers, only:[:show, :edit, :update]
     resources :items, only:[:index, :show]
     resources :homes, only: [:top]
@@ -42,8 +44,6 @@ Rails.application.routes.draw do
     post "orders/confirm" => "orders#confirm"
     get "customers/infomation/edit" => "infomation#edit"
     patch "customers/infomation" => "infomation#edit"
-    get "customers/unsubscribe" => "customers#unsubscribe"
-    patch "customers/withdraw" => "customers#withdraw"
   end
 
 
