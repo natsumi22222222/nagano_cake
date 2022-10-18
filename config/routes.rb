@@ -17,8 +17,6 @@ Rails.application.routes.draw do
     resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :items, except: [:destroy]
-    get "customers/unsubscribe" => "customers#unsubscribe"
-    patch "customers/withdraw" => "customers#withdraw"
     patch "customers/:id/edit" => "customers#:id/edit"
   end
 
@@ -28,8 +26,9 @@ Rails.application.routes.draw do
 
   scope module: :public do
     resources :addresses, except: [:new]
-    resources :orders, only: [:new, :index, :show]
-    resources :cart_items, only:[:index, :update, :destroy , :create] do
+    get "orders/complete" => "orders#complete"
+    resources :orders, only: [:new,:create, :index, :show]
+    resources :cart_items, only:[:index, :create, :update, :destroy , :create] do
       collection do
         delete 'destroy_all'
       end
@@ -40,10 +39,11 @@ Rails.application.routes.draw do
     get "about" => "homes#about"
     get "my_page" => "customers#show"
     get "orders/confirm" => "orders#confirm"
-    post "orders/confirm" => ""
-    get "orders/complete" => "orders#complete"
+    post "orders/confirm" => "orders#confirm"
     get "customers/infomation/edit" => "infomation#edit"
     patch "customers/infomation" => "infomation#edit"
+    get "customers/unsubscribe" => "customers#unsubscribe"
+    patch "customers/withdraw" => "customers#withdraw"
   end
 
 

@@ -10,14 +10,26 @@ class Public::OrdersController < ApplicationController
     @order= Order.new(order_params)
     @order.customer_id= current_customer.id
     @order.save
+    @cart_items= current_customer.cart_items
+    @cart_items.each do |cart_item|
+      @order_detail= OrderDetail.new
+      @order_detail.item_id= cart_item.item_id
+      @order_detail.amount= cart_item.amount
+      @order_detail.tax_price = cart_item.item.with_tax_price
+      @order_detail.order_id = @order.id
+      @order_detail.save
+    end
+    @cart_items.destroy_all
+    redirect_to orders_complete_path
+
   end
 
   def index
-    @orders= Order.all
+    @orders= current_customer.orders
   end
 
   def show
-
+     @orders= Order.find(params[:id])
   end
 
   def confirm
@@ -36,7 +48,10 @@ class Public::OrdersController < ApplicationController
     end
 
     @cart_items = current_customer.cart_items.all
-    @total= 0
+    @order.shipping_cost = 800
+    @total = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
+    @order.total_payment= @total + @order.shipping_cost.to_i
+
   end
 
 
@@ -47,7 +62,7 @@ class Public::OrdersController < ApplicationController
 private
 
   def order_params
-    params.require(:order).permit(:payment_method, :postal_code, :address, :name)
+    params.require(:order).permit(:total_payment, :payment_method, :postal_code, :address, :name)
   end
 
 end
