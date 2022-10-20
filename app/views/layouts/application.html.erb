@@ -47,7 +47,7 @@
 
             <% elsif customer_signed_in? %>
 
-              <li id= "name"> ようこそ、<%= current_customer.last_name %>さん！</li>
+              <li id= "name text-light"> ようこそ、<%= current_customer.last_name %>さん！</li>
               <li class="nav-item">
                 <%= link_to "マイページ", my_page_path, class: 'nav-link text-light' %>
               </li>

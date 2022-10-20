@@ -1,5 +1,5 @@
 class Admin::OrdersController < ApplicationController
   def show
-    @orderdetail=OrderDetail.all
+    @order= Order.find(params[:id])
   end
 end

@@ -1,15 +1,15 @@
 <p>注文履歴詳細</p>
-<% @order.each do |order| %>
+
 <label>購入者</label>
-<%= order.namme %>
+<%= @order.name %>
 <label>注文日</label>
-<%= order.created_at.strftime('%Y/%m/%d') %>
+<%= @order.created_at.strftime('%Y/%m/%d') %>
 <label>配送先</label>
-<%= order.address %>
+<%= @order.address %>
 <label>支払方法</label>
-<%= order.payment_method %>
+<%= @order.payment_method %>
 <label>注文ステータス</label>
-<%= f.select :order_status, Order.order_statuses_i18n.invert, {prompt: false}, class: "form-control form-control-sm col-6" %>
+<%= f.select @order.status, class: "form-control form-control-sm col-6" %>
 <%= f.submit "更新" %>
 
 <table class= "table">
@@ -30,6 +30,5 @@
                <td><%= item_id.price %></td>
                <td><%= order_details.making_status %></td>
              </tr>
-<% end %>
           </tbody>
         </table>

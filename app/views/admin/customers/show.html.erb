@@ -1,50 +1,55 @@
-<%= @customer.full_name %>さんの会員詳細<br>
+<div class="container">
+ <div class="row">
+	 <div class="col-sm col-sm-offset-1">
 
+   <%= @customer.full_name %>さんの会員詳細<br>
 
-<table>
-  <tbody>
-    <tr>
-      <th>会員ID</th>
-      <td><%= @customer.id %></td>
-     </tr>
-     <tr>
-      <th>氏名</th>
-      <td> <%= @customer.full_name %></td>
-     </tr>
-     <tr>
-      <th>フリガナ</th>
-      <td><%= @customer.full_name_kana %></td>
-     </tr>
-     <tr>
-      <th>郵便番号</th>
-      <td><%= @customer.postal_code %></td>
-     </tr>
-     <tr>
-      <th>住所</th>
-      <td><%= @customer.address %></td>
-     </tr>
-     <tr>
-      <th>電話番号</th>
-      <td><%= @customer.telephone_number %></td>
-     </tr>
-     <tr>
-      <th>メールアドレス</th>
-      <td><%= @customer.email %></td>
-     </tr>
-     <tr>
-      <th>会員ステータス</th>
-      <td><%= @customer.is_deleted %></td>
-     </tr>
-
-
-  </tbody>
-</table>
-
-
-
-
-
+   <table>
+      <tbody>
+        <tr>
+          <th>会員ID</th>
+          <td><%= @customer.id %></td>
+        </tr>
+        <tr>
+          <th>氏名</th>
+          <td> <%= @customer.full_name %></td>
+        </tr>
+        <tr>
+          <th>フリガナ</th>
+          <td><%= @customer.full_name_kana %></td>
+        </tr>
+        <tr>
+          <th>郵便番号</th>
+          <td><%= @customer.postal_code %></td>
+        </tr>
+        <tr>
+          <th>住所</th>
+          <td><%= @customer.address %></td>
+        </tr>
+        <tr>
+          <th>電話番号</th>
+          <td><%= @customer.telephone_number %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= @customer.email %></td>
+        </tr>
+        <tr>
+          <th>会員ステータス</th>
+          <td>
+              <% if @customer.is_deleted == true %>
+      			    <%= "有効" %>
+      		    <% else %>
+      			   <%= "退会" %>
+      		    <% end %></td>
+        </tr>
+      </tbody>
+   </table>
 
 
   <%= link_to '編集する', edit_admin_customer_path(@customer.id), class: "btn btn-sm btn-success" %>
-  <%= link_to '注文履歴一覧に戻る', admin_path, class: "btn btn-sm btn-success" %>
+  <%= link_to '注文履歴一覧に戻る', admin_path, class: "btn btn-sm btn-primary" %>
+
+	 </div>
+ </div>
+</div>
