@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :edit, :update]
     resources :items, except: [:destroy]
     patch "customers/:id/edit" => "customers#:id/edit"
+    patch "order_details/:id" =>"orders#update" , as: 'order_detail'
   end
 
   scope module: :admin do
@@ -44,6 +45,7 @@ Rails.application.routes.draw do
     post "orders/confirm" => "orders#confirm"
     get "customers/infomation/edit" => "infomation#edit"
     patch "customers/infomation" => "infomation#edit"
+
   end
 
 
