@@ -13,7 +13,7 @@ class Admin::OrdersController < ApplicationController
     if @order.status == "入金確認"
       @order_details.each do |order_detail|
         @order_detail.making_status = "製作待ち"
-        @order_detail.save
+        @order_detail.update
       end
     end
     redirect_to admin_order_path(@order.id)

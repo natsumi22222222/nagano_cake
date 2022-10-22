@@ -17,8 +17,8 @@ Rails.application.routes.draw do
     resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :items, except: [:destroy]
+    resources :order_details, only: [:update]
     patch "customers/:id/edit" => "customers#:id/edit"
-    patch "order_details/:id" =>"orders#update" , as: 'order_detail'
   end
 
   scope module: :admin do
