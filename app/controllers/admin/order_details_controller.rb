@@ -8,14 +8,14 @@ class Admin::OrderDetailsController < ApplicationController
     @order_detail.update(order_detail_params)
 
 
-    if @order_details.where(making_status: "製作中").count >= 1
-      @order.status= "製作中"
-      @order.save
+    if @order_details.where(making_status: 2).count >= 1
+      @order.status= "in_production"
+      @order.update(status: 2)
     end
 
-    if @order_details.where(make_status: "製作完了").count
-      @order.status= "発送準備中"
-      @order.save
+    if @order_details.where(make_status: 3).all
+      @order.status= "preparing_delivery"
+      @order.update(status: 3)
     end
 
   end
