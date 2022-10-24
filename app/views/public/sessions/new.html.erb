@@ -1,8 +1,7 @@
 <div class="container">
-  <div class="row text-center">
-
-    <h4>ログイン</h4>
+  <h4 class= "log-in">ログイン</h4>
       <p>会員の方はこちらからログイン</p>
+  <div class="row justify-content-center">
       <%= form_with model: @customer, url: session_path(resource_name) do |f| %>
 
       <div class="form-group">
@@ -24,7 +23,7 @@
         <% end %>
 
         <div class="actions">
-          <%= f.submit "ログイン", class: "btn btn-primary btn-sm" %>
+          <%= f.submit "ログイン", class: "btn btn-primary" %>
         </div>
       <% end %>
 

@@ -1,14 +1,21 @@
-  <%= image_tag @item.image, size: "300x300" %>
-  <h5><%= @item.name %></h5>
+<div class="container">
+  <div class="row center-block">
+    <div class= "col-md-3">
+      <%= image_tag @item.image, size: "300x300" %>
+    </div>
+    <div class= "col-md-8 offset-md-1">
 
-  <%= @item.introduction %><br>
-  ¥<%= @item.with_tax_price %>(税込)
+      <h5><%= @item.name %></h5>
+      <%= @item.introduction %><br>
+      ¥<%= @item.with_tax_price %>(税込)
 
-<% if @item.is_active == true %>
-  <%= form_with model: @cart_item, url: cart_items_path(@cart_item) do |f| %>
-    <%= f.hidden_field :item_id, value: @item.id %>
-    <%= f.select :amount, *[1..10], include_blank: "個数選択" %>
-    <%= f.submit "カートに入れる", class: 'btn btn-success' %>
-  <% end %>
-<% end %>
-
+      <% if @item.is_active == true %>
+        <%= form_with model: @cart_item, url: cart_items_path(@cart_item) do |f| %>
+          <%= f.hidden_field :item_id, value: @item.id %>
+          <%= f.select :amount, *[1..10], include_blank: "個数選択", class: "form-control" %>
+          <%= f.submit "カートに入れる", class: 'btn btn-sm btn-success' %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

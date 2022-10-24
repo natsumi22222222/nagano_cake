@@ -1,22 +1,22 @@
 
-<div class= "container">
-  <div class="row">
-      <div class="col-md-3">
-        <div class="box">
-          <p class= "text">
-            ようこそ、<strong>ながのCAKE</strong>へ！<br>
-            このサイトは、ケーキ販売のECサイトになります。<br>
-            会員でない方も商品の閲覧はできますが、
-            購入には会員登録が必要になります。
-          </p>
-        </div>
 
+    <div class="tag_image">
+      <div class= "top-image">
+        <%= image_tag 'top_image.jpg' %>
       </div>
-  </div>
+      <p class="top-text">
+        ようこそ、<strong>ながのCAKE</strong>へ！<br>
+        このサイトは、ケーキ販売のECサイトになります。<br>
+        会員でない方も商品の閲覧はできますが、
+        購入には会員登録が必要になります。
+      </p>
+    </div>
 
-    <h4>新着商品</h4>
-     <% @items.each do |item| %>
-      <%= image_tag item.image, size: "200x200" %>
 
-     <% end %>
-</div>
+    <div class= "new-item">
+      <h4 class= "new">新着商品</h4>
+       <% @items.each do |item| %>
+        <%= image_tag item.image, size: "200x200" %>
+
+       <% end %>
+    </div>

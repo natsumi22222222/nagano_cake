@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="row text-center">
-    <h5>管理者ログイン</h5>
 
+  <h4 class= "log-in">管理者ログイン</h4>
+  <div class="row justify-content-center">
     <%= form_with model: @admin, url: session_path(resource_name) do |f| %>
 
     <div class="form-group">
@@ -16,11 +16,11 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "ログイン", class: "btn btn-primary btn-sm" %>
+        <%= f.submit "ログイン", class: "btn btn-primary" %>
       </div>
     </div>
     <% end %>
 
     <%= render "admin/shared/links" %>
-    </div>
+  </div>
 </div>

@@ -1,1 +1,44 @@
 @import '~bootstrap/scss/bootstrap';
+
+div.tag_image{
+  position: relative;
+  text-align: center;
+  width: 1440px;
+}
+
+.top-image{
+  opacity: 0.5;
+}
+
+p.top-text{
+  position: absolute;
+  top: 50%;
+  left: 430px;
+}
+
+.new-item{
+  position: relative;
+  text-align: center;
+  padding-top: 30px;
+}
+
+h4.new{
+  position: absolute;
+  top: 0;
+  left: 20%;
+}
+h5{
+  margin-top: 15px;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
+
+}
+
+h4.log-in{
+  padding-top: 30px;
+}
+
+table{
+  margin-top : 15px;
+}
