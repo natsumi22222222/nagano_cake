@@ -1,22 +1,23 @@
 
-
-    <div class="tag_image">
-      <div class= "top-image">
-        <%= image_tag 'top_image.jpg' %>
+      <div class="tag_image">
+        <div class= "top-image">
+          <%= image_tag 'top_image.jpg' %>
+        </div>
+        <p class="top-text">
+          ようこそ、<strong>ながのCAKE</strong>へ！<br>
+          このサイトは、ケーキ販売のECサイトになります。<br>
+          会員でない方も商品の閲覧はできますが、
+          購入には会員登録が必要になります。
+        </p>
       </div>
-      <p class="top-text">
-        ようこそ、<strong>ながのCAKE</strong>へ！<br>
-        このサイトは、ケーキ販売のECサイトになります。<br>
-        会員でない方も商品の閲覧はできますが、
-        購入には会員登録が必要になります。
-      </p>
-    </div>
 
 
-    <div class= "new-item">
-      <h4 class= "new">新着商品</h4>
-       <% @items.each do |item| %>
-        <%= image_tag item.image, size: "200x200" %>
-
-       <% end %>
-    </div>
+      <div class= "new-item">
+        <h4 class= "new">新着商品</h4>
+        <% @items.each do |item| %>
+          <%= link_to item_path(item.id) do %>
+            <%= image_tag item.image, size: "200x200" %>
+          <% end %>
+        <% end %>
+          <%= link_to "全ての商品を見る>",items_path %>
+      </div>

@@ -1,23 +1,55 @@
-<%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
+<div class="container">
+  <div class="row">
+    <div class= "col-md-10">
 
-  <%= @customer.full_name %>さんの会員時情報編集<br>
+      <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
 
-  <labal>会員ID</labal>
-  <%= @customer.id %>
-  <labal>氏名</labal>
-  <%= f.text_field :last_name %><%= f.text_field :first_name %><br>
-  <labal>フリガナ</labal>
-  <%= f.text_field :full_name_kana %>
-  <labal>郵便番号</labal>
-  <%= f.text_field :postal_code %>
-  <labal>住所</labal>
-  <%= f.text_area :address %>
-  <labal>電話番号</labal>
-  <%= f.text_field :telephone_number %>
-  <labal>メールアドレス</labal>
-  <%= f.text_field :email %>
-  <labal>会員ステータス</labal>
-  <%= f.radio_button :is_deleted, :false %> 有効
-  <%= f.radio_button :is_deleted, :true %>退会
-  <%= f.submit "変更を保存" %>
-<% end %>
+      <h5><%= @customer.full_name %> さんの会員時情報編集</h5><br>
+
+          <labal>会員ID</labal>
+          <%= @customer.id %>
+        <div class="form-group">
+          <div class="form-inline">
+            <labal>氏名</labal>
+            <%= f.text_field :last_name, class: "form-control" %><%= f.text_field :first_name, class: "form-control m-1" %><br>
+          </div>
+      </div>
+      <div class="form-group">
+          <div class="form-inline">
+            <labal>フリガナ</labal>
+            <%= f.text_field :last_name_kana, class: "form-control" %><%= f.text_field :first_name_kana, class: "form-control m-1" %>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-inline">
+          <labal>郵便番号</labal>
+          <%= f.text_field :postal_code, class: "form-control m-2" %>
+        </div>
+
+        <div class="form-inline">
+          <labal>住所</labal>
+            <%= f.text_field :address, class: "form-control m-2" %>
+        </div>
+
+        <div class="form-inline">
+          <labal>電話番号</labal>
+          <%= f.text_field :telephone_number, class: "form-control m-2" %>
+        </div>
+
+        <div class="form-inline">
+          <labal>メールアドレス</labal>
+          <%= f.text_field :email, class: "form-control m-2" %>
+        </div>
+        <div class="form-inline">
+        <labal>会員ステータス</labal>
+          <%= f.radio_button :is_deleted, :false %>有効
+          <%= f.radio_button :is_deleted, :true %>退会
+        </div>
+
+          <%= f.submit "変更を保存", class: "btn btn-success m-2" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

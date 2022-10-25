@@ -48,6 +48,7 @@ class Public::OrdersController < ApplicationController
       @order.address = @address.address
       @order.name = @address.name
 
+
     end
 
     @cart_items = current_customer.cart_items.all
@@ -65,7 +66,7 @@ class Public::OrdersController < ApplicationController
 private
 
   def order_params
-    params.require(:order).permit(:total_payment, :payment_method, :postal_code, :address, :name)
+    params.require(:order).permit(:total_payment, :payment_method, :postal_code, :address, :name, :shipping_cost)
   end
 
 end
