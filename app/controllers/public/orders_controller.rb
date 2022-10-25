@@ -30,7 +30,9 @@ class Public::OrdersController < ApplicationController
 
   def show
      @order= Order.find(params[:id])
-     @cart_items = current_customer.cart_items.all
+     @order_details= @order.order_details
+    @order.shipping_cost= 800
+    @total= @order.total_payment - @order.shipping_cost
   end
 
   def confirm

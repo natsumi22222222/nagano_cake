@@ -1,5 +1,15 @@
 @import '~bootstrap/scss/bootstrap';
 
+nav {
+  border-top: solid 0.7px #000;
+  border-bottom: solid 0.7px #000;
+}
+
+
+.nav-item {
+  margin: 5 5px;
+}
+
 div.tag_image{
   position: relative;
   text-align: center;
@@ -29,16 +39,35 @@ h4.new{
 }
 h5{
   margin-top: 15px;
-  margin-bottom: 5px;
   margin-right: 10px;
   margin-left: 10px;
-
 }
+
+h5.span{
+ background-color: lightgrey;
+}
+
+h5.item-index{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 
 h4.log-in{
   padding-top: 30px;
 }
 
 table{
-  margin-top : 15px;
+  margin-top : 10px;
+  padding-top : 15px;
+  margin-bottom : 10px;
+}
+
+h2.complete{
+  padding-top: 150px;
+}
+
+.sold-out{
+  padding-bottom: 300px;
+
 }
