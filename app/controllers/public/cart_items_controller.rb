@@ -20,6 +20,7 @@ class Public::CartItemsController < ApplicationController
     else
       render "index"
     end
+
   end
 
   def update

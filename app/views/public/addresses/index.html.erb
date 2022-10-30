@@ -1,8 +1,8 @@
 <h5>配送先登録/一覧</h5>
 <div class= "container">
   <div class="row">
-    <table>
     <%= form_with model: @address, url: addresses_path, local: true do |f| %>
+    <table>
       <tr>
         <th>郵便番号（ハイフンなし）</th>
         <td><%= f.text_field :postal_code, placeholder: "0000000",class: "form-control" %></td>
@@ -16,10 +16,10 @@
         <td><%= f.text_field :name, placeholder: "令和道子", class: "form-control" %></td>
       </tr>
         <td><%= f.submit '新規登録', class: "btn btn-sm btn-success" %></td>
-
-    <% end %>
     </table>
+    <% end %>
   </div>
+
   <br>
     <div class="row">
       <table class= "table">

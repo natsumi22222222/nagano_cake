@@ -4,6 +4,10 @@ class Public::OrdersController < ApplicationController
     @order= Order.new
     @customer= current_customer
     @address= Address.new
+    @cart_items= current_customer.cart_items
+    if @cart_items.empty?
+     redirect_to cart_items_path
+    end
   end
 
   def create

@@ -4,7 +4,7 @@
 
     <h5>注文履歴一覧</h5>
 
-      <table class= "table">
+      <table class= "table m-4">
         <thead>
           <tr>
             <th class= "table-active">購入日時</th>
@@ -26,6 +26,9 @@
           <% end %>
         </tbody>
       </table>
+      <div class= "p-3">
+        <%= paginate @orders_page %>
+      </div>
     </div>
   </div>
 </div>

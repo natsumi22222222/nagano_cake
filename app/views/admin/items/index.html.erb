@@ -18,6 +18,7 @@
                 <th class= "table-active">ジャンル</th>
                 <th class= "table-active">ステータス</th>
             </thead>
+
             <tbody>
             <% @items.each do |item| %>
               <tr>
@@ -44,6 +45,10 @@
             <% end %>
         </tbody>
       </table>
+      <div class= "p-3">
+        <%= paginate @items_page %>
+      </div>
 		</div>
 	</div>
+
 </div>
